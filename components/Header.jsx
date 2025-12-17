@@ -190,6 +190,7 @@ const viaggiUniti = [
 
 export default function Header() {
     const [search, setSearch] = useState("")
+    const [loading, setLoading] = useState(true)
 
     // variable
     let viaggiatori = []
@@ -242,14 +243,14 @@ export default function Header() {
                             </li>
                         </ul>
 
-                        <form className="d-flex my-2 my-lg-0">
+                        {loading && <form className="d-flex my-2 my-lg-0">
                             <input
                                 className="form-control me-sm-2"
                                 type="text"
                                 placeholder="Cerca per nome o cognome" value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                             />
-                        </form>
+                        </form>}
                     </div>
                 </div>
             </nav>
