@@ -203,7 +203,7 @@ export default function App() {
 
   // filter users
   const filteredUsers = viaggiatori.filter(user =>
-    user.nome.toLowerCase().includes(search.toLowerCase()) || user.cognome.toLowerCase().includes(search.toLowerCase())
+    `${user.nome} ${user.cognome}`.toLowerCase().includes(search.toLowerCase())
   )
 
   return (
