@@ -203,12 +203,25 @@ export default function App() {
 
   // filter users
   const filteredUsers = viaggiatori.filter(user =>
-    `${user.nome} ${user.cognome}`.toLowerCase()
+    user.nome.toLowerCase().includes(search.toLowerCase()) || user.cognome.toLowerCase().includes(search.toLowerCase())
   )
 
   return (
     <>
+      <input
+        type="text"
+        placeholder="Cerca per nome o cognome"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
+      <ul className='list-unstyled'>
+        {filteredUsers.map(traveler => (
+          <li key={traveler.id}>
+            {traveler.nome} {traveler.cognome}
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
