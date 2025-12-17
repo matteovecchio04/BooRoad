@@ -201,10 +201,8 @@ export default function App() {
     })
   })
 
-
-
   // filter users
-  const filteredUsers = viaggiUniti.viaggiatori.filter(viaggiatore =>
+  const filteredUsers = viaggiatori.filter(user =>
     `${user.nome} ${user.cognome}`.toLowerCase()
   )
 
